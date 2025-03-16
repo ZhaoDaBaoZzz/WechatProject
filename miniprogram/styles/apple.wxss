@@ -1,0 +1,156 @@
+/**
+ * Apple Design Style Global CSS
+ */
+
+/* 颜色变量 */
+page {
+  --apple-primary: #007AFF;       /* 苹果蓝 */
+  --apple-secondary: #5AC8FA;     /* 浅蓝色 */
+  --apple-success: #34C759;       /* 绿色 */
+  --apple-warning: #FF9500;       /* 橙色 */
+  --apple-danger: #FF3B30;        /* 红色 */
+  --apple-gray1: #8E8E93;         /* 浅灰色 */
+  --apple-gray2: #AEAEB2;         /* 更浅灰色 */
+  --apple-gray3: #C7C7CC;         /* 最浅灰色 */
+  --apple-gray4: #D1D1D6;         /* 边框灰色 */
+  --apple-gray5: #E5E5EA;         /* 背景灰色 */
+  --apple-gray6: #F2F2F7;         /* 最浅背景色 */
+  --apple-black: #000000;         /* 黑色 */
+  --apple-white: #FFFFFF;         /* 白色 */
+  
+  /* 全局背景色 */
+  background-color: var(--apple-gray6);
+  color: var(--apple-black);
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', sans-serif;
+}
+
+/* 卡片样式 */
+.apple-card {
+  background-color: var(--apple-white);
+  border-radius: 12px;
+  padding: 16px;
+  margin: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+/* 磨砂玻璃效果 */
+.apple-frosted-glass {
+  background-color: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* 按钮样式 */
+.apple-button {
+  background-color: var(--apple-primary);
+  color: var(--apple-white);
+  border-radius: 8px;
+  padding: 12px 20px;
+  font-weight: 500;
+  text-align: center;
+  transition: opacity 0.2s;
+}
+
+.apple-button-secondary {
+  background-color: var(--apple-gray5);
+  color: var(--apple-primary);
+}
+
+.apple-button-small {
+  padding: 8px 16px;
+  font-size: 14px;
+}
+
+/* 输入框样式 */
+.apple-input {
+  background-color: var(--apple-gray6);
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin-bottom: 16px;
+}
+
+/* 标题文本 */
+.apple-title {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.apple-subtitle {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+/* 正文文本 */
+.apple-text {
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--apple-black);
+}
+
+.apple-text-secondary {
+  font-size: 14px;
+  color: var(--apple-gray1);
+}
+
+/* 分割线 */
+.apple-divider {
+  height: 1px;
+  background-color: var(--apple-gray4);
+  margin: 16px 0;
+}
+
+/* 标签样式 */
+.apple-tag {
+  display: inline-block;
+  padding: 4px 8px;
+  background-color: var(--apple-gray5);
+  border-radius: 4px;
+  font-size: 12px;
+  margin-right: 8px;
+  color: var(--apple-gray1);
+}
+
+/* 头像样式 */
+.apple-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 24px;
+  background-color: var(--apple-gray5);
+}
+
+/* 列表样式 */
+.apple-list-item {
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid var(--apple-gray5);
+}
+
+/* 评分样式 */
+.apple-rating {
+  display: flex;
+  align-items: center;
+}
+
+/* 加载动画 */
+.apple-loading {
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--apple-gray4);
+  border-top: 2px solid var(--apple-primary);
+  border-radius: 50%;
+  animation: apple-spin 1s linear infinite;
+}
+
+@keyframes apple-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* 底部安全区适配 */
+.safe-area-bottom {
+  padding-bottom: constant(safe-area-inset-bottom);
+  padding-bottom: env(safe-area-inset-bottom);
+}

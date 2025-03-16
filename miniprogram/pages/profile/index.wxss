@@ -1,0 +1,112 @@
+/* pages/profile/index.wxss */
+.container {
+  padding: 16px;
+}
+
+/* 未登录状态样式 */
+.login-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 48px 0;
+}
+
+.login-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 40px;
+  background-color: var(--apple-gray5);
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+
+.login-avatar image {
+  width: 100%;
+  height: 100%;
+}
+
+.login-text {
+  font-size: 16px;
+  color: var(--apple-gray1);
+  margin-bottom: 24px;
+}
+
+/* 已登录状态样式 */
+.profile-section {
+  margin-bottom: 16px;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+}
+
+.user-avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 32px;
+  margin-right: 16px;
+}
+
+.user-detail {
+  flex: 1;
+}
+
+.user-name {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.user-role {
+  display: inline-block;
+}
+
+/* 菜单样式 */
+.menu-section {
+  margin-bottom: 16px;
+}
+
+.menu-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: var(--apple-black);
+}
+
+.menu-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--apple-gray5);
+}
+
+.menu-item:last-child {
+  border-bottom: none;
+}
+
+.menu-icon {
+  font-size: 20px;
+  margin-right: 12px;
+  width: 24px;
+  text-align: center;
+}
+
+.menu-name {
+  flex: 1;
+  font-size: 16px;
+}
+
+.menu-arrow {
+  color: var(--apple-gray2);
+  font-size: 16px;
+}
+
+.logout {
+  color: var(--apple-danger);
+}

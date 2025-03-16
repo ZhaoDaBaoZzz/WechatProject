@@ -1,0 +1,82 @@
+<view class="container">
+  <!-- 医生信息 -->
+  <view class="doctor-info-section apple-card">
+    <view class="doctor-basic">
+      <image class="doctor-avatar" src="{{doctor.avatar}}" mode="aspectFill"></image>
+      <view class="doctor-info">
+        <view class="doctor-name">{{doctor.name}}</view>
+        <view class="doctor-title apple-text-secondary">{{doctor.title}}</view>
+        <view class="doctor-rating">
+          <text class="rating-star">⭐</text>
+          <text class="rating-score">{{doctor.rating}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 预约表单 -->
+  <view class="appointment-form apple-card">
+    <view class="section-title">预约信息</view>
+    
+    <!-- 日期选择 -->
+    <view class="form-item">
+      <view class="form-label">预约日期</view>
+      <picker mode="date" value="{{date}}" start="{{startDate}}" end="{{endDate}}" bindchange="bindDateChange">
+        <view class="picker-value">{{date || '请选择日期'}}</view>
+      </picker>
+    </view>
+    
+    <!-- 时间段选择 -->
+    <view class="form-item">
+      <view class="form-label">预约时间</view>
+      <view class="time-slots">
+        <view class="time-slot {{item.available ? (selectedTimeSlot === index ? 'selected' : '') : 'disabled'}}" 
+              wx:for="{{timeSlots}}" 
+              wx:key="index" 
+              bindtap="{{item.available ? 'selectTimeSlot' : ''}}" 
+              data-index="{{index}}">
+          {{item.time}}
+        </view>
+      </view>
+    </view>
+    
+    <!-- 咨询类型 -->
+    <view class="form-item">
+      <view class="form-label">咨询类型</view>
+      <radio-group bindchange="bindConsultTypeChange">
+        <label class="radio-item" wx:for="{{consultTypes}}" wx:key="value">
+          <radio value="{{item.value}}" checked="{{item.checked}}"/>
+          <text>{{item.name}}</text>
+        </label>
+      </radio-group>
+    </view>
+    
+    <!-- 咨询问题 -->
+    <view class="form-item">
+      <view class="form-label">咨询问题</view>
+      <textarea class="form-textarea" placeholder="请简要描述您的问题，医生将提前了解您的情况" bindinput="bindProblemInput" maxlength="200" value="{{problem}}"></textarea>
+      <view class="textarea-counter">{{problemLength}}/200</view>
+    </view>
+    
+    <!-- 联系方式 -->
+    <view class="form-item">
+      <view class="form-label">联系方式</view>
+      <input class="form-input" type="number" placeholder="请输入您的手机号码" bindinput="bindPhoneInput" value="{{phone}}"/>
+    </view>
+  </view>
+  
+  <!-- 预约须知 -->
+  <view class="notice-section apple-card">
+    <view class="section-title">预约须知</view>
+    <view class="notice-content apple-text">
+      <view class="notice-item">1. 预约成功后，医生将在24小时内确认</view>
+      <view class="notice-item">2. 确认后，您将收到微信通知</view>
+      <view class="notice-item">3. 如需取消预约，请提前12小时操作</view>
+    </view>
+  </view>
+  
+  <!-- 底部按钮 -->
+  <view class="bottom-button-container safe-area-bottom">
+    <button class="apple-button" bindtap="submitAppointment" disabled="{{!formValid}}">提交预约</button>
+  </view>
+</view>

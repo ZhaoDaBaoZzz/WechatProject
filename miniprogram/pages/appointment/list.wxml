@@ -1,0 +1,48 @@
+<view class="container">
+  <!-- 标签页切换 -->
+  <view class="tab-header">
+    <view class="tab-item {{activeTab === 'upcoming' ? 'active' : ''}}" bindtap="switchTab" data-tab="upcoming">即将到来</view>
+    <view class="tab-item {{activeTab === 'past' ? 'active' : ''}}" bindtap="switchTab" data-tab="past">历史预约</view>
+  </view>
+
+  <!-- 预约列表 -->
+  <view class="appointment-list" wx:if="{{appointments.length > 0}}">
+    <view class="appointment-item apple-card" wx:for="{{appointments}}" wx:key="id">
+      <view class="appointment-header">
+        <view class="appointment-status {{item.statusClass}}">{{item.statusText}}</view>
+        <view class="appointment-date">{{item.date}} {{item.timeSlot}}</view>
+      </view>
+      
+      <view class="doctor-info">
+        <image class="doctor-avatar" src="{{item.doctor.avatar}}" mode="aspectFill"></image>
+        <view class="doctor-detail">
+          <view class="doctor-name">{{item.doctor.name}}</view>
+          <view class="doctor-title apple-text-secondary">{{item.doctor.title}}</view>
+        </view>
+      </view>
+      
+      <view class="appointment-type">
+        <text class="type-label">咨询类型：</text>
+        <text class="type-value">{{item.consultType === 'online' ? '线上咨询' : '线下面诊'}}</text>
+      </view>
+      
+      <view class="appointment-problem">
+        <text class="problem-label">咨询问题：</text>
+        <text class="problem-value">{{item.problem}}</text>
+      </view>
+      
+      <view class="appointment-actions">
+        <button class="apple-button-small" wx:if="{{item.status === 0}}" bindtap="cancelAppointment" data-id="{{item.id}}">取消预约</button>
+        <button class="apple-button-small" wx:if="{{item.status === 1}}" bindtap="startConsultation" data-id="{{item.id}}">开始咨询</button>
+        <button class="apple-button-small apple-button-secondary" wx:if="{{item.status === 2}}" bindtap="writeReview" data-id="{{item.id}}">评价</button>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 空状态 -->
+  <view class="empty-state" wx:else>
+    <view class="empty-icon">📅</view>
+    <view class="empty-text">暂无预约记录</view>
+    <button class="apple-button" bindtap="navigateToDoctor">去预约</button>
+  </view>
+</view>

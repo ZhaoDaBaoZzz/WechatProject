@@ -1,0 +1,73 @@
+<view class="container">
+  <!-- 搜索栏 -->
+  <view class="search-bar">
+    <view class="apple-input search-input">
+      <text class="search-icon">🔍</text>
+      <input placeholder="搜索医生姓名" confirm-type="search" value="{{keyword}}" bindinput="onKeywordChange" bindconfirm="onSearch" />
+    </view>
+  </view>
+
+  <!-- 筛选区域 -->
+  <view class="filter-section">
+    <scroll-view scroll-x class="filter-scroll">
+      <!-- 专业领域筛选 -->
+      <view class="filter-group">
+        <view class="filter-title">专业领域</view>
+        <view class="filter-options">
+          <view class="filter-option {{currentField === '' ? 'active' : ''}}" bindtap="onFilterField" data-field="">
+            全部
+          </view>
+          <view wx:for="{{fieldOptions}}" wx:key="*this" class="filter-option {{currentField === item ? 'active' : ''}}" bindtap="onFilterField" data-field="{{item}}">
+            {{item}}
+          </view>
+        </view>
+      </view>
+      
+      <!-- 职称筛选 -->
+      <view class="filter-group">
+        <view class="filter-title">职称</view>
+        <view class="filter-options">
+          <view class="filter-option {{currentTitle === '' ? 'active' : ''}}" bindtap="onFilterTitle" data-title="">
+            全部
+          </view>
+          <view wx:for="{{titleOptions}}" wx:key="*this" class="filter-option {{currentTitle === item ? 'active' : ''}}" bindtap="onFilterTitle" data-title="{{item}}">
+            {{item}}
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+
+  <!-- 医生列表 -->
+  <view class="doctor-list">
+    <view class="doctor-item apple-card" wx:for="{{filteredDoctors}}" wx:key="id" bindtap="navigateToDetail" data-id="{{item.id}}">
+      <image class="doctor-avatar" src="{{item.avatar}}" mode="aspectFill"></image>
+      <view class="doctor-info">
+        <view class="doctor-header">
+          <view class="doctor-name">{{item.name}}</view>
+          <view class="doctor-rating">
+            <text class="rating-star">⭐</text>
+            <text class="rating-score">{{item.rating}}</text>
+          </view>
+        </view>
+        <view class="doctor-title apple-text-secondary">{{item.title}}</view>
+        <view class="doctor-tags">
+          <view class="apple-tag">{{item.field}}</view>
+          <view class="apple-tag">{{item.experience}}年经验</view>
+        </view>
+        <view class="doctor-description apple-text-secondary">{{item.description}}</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 加载更多 -->
+  <view class="load-more" wx:if="{{hasMore}}" bindtap="loadMore">
+    <text wx:if="{{!isLoading}}">加载更多</text>
+    <view wx:else class="apple-loading"></view>
+  </view>
+
+  <!-- 无数据提示 -->
+  <view class="empty-tip" wx:if="{{filteredDoctors.length === 0}}">
+    <text>暂无符合条件的医生</text>
+  </view>
+</view>

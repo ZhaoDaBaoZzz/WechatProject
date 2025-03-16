@@ -1,0 +1,73 @@
+<view class="container">
+  <!-- 顶部搜索栏 -->
+  <view class="search-bar">
+    <view class="apple-input search-input">
+      <text class="search-icon">🔍</text>
+      <input placeholder="搜索医生或专业领域" confirm-type="search" bindconfirm="onSearch" />
+    </view>
+  </view>
+
+  <!-- 功能入口区 -->
+  <view class="feature-section">
+    <view class="apple-subtitle">快捷服务</view>
+    <view class="feature-grid">
+      <view class="feature-item" bindtap="navigateTo" data-url="/pages/doctors/list">
+        <view class="feature-icon doctor-icon">👨‍⚕️</view>
+        <view class="feature-name">找医生</view>
+      </view>
+      <view class="feature-item" bindtap="navigateTo" data-url="/pages/appointment/create">
+        <view class="feature-icon appointment-icon">📅</view>
+        <view class="feature-name">预约咨询</view>
+      </view>
+      <view class="feature-item" bindtap="navigateTo" data-url="/pages/news/list">
+        <view class="feature-icon news-icon">📰</view>
+        <view class="feature-name">心理资讯</view>
+      </view>
+      <view class="feature-item" bindtap="navigateTo" data-url="/pages/profile/index">
+        <view class="feature-icon profile-icon">👤</view>
+        <view class="feature-name">个人中心</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 推荐医生区 -->
+  <view class="doctor-section">
+    <view class="section-header">
+      <view class="apple-subtitle">推荐医生</view>
+      <view class="view-more" bindtap="navigateTo" data-url="/pages/doctors/list">查看更多</view>
+    </view>
+    <scroll-view scroll-x class="doctor-scroll">
+      <view class="doctor-card apple-card" wx:for="{{recommendDoctors}}" wx:key="id" bindtap="navigateTo" data-url="/pages/doctors/detail?id={{item.id}}">
+        <image class="doctor-avatar" src="{{item.avatar}}" mode="aspectFill"></image>
+        <view class="doctor-name">{{item.name}}</view>
+        <view class="doctor-title apple-text-secondary">{{item.title}}</view>
+        <view class="doctor-field apple-tag">{{item.field}}</view>
+        <view class="doctor-rating">
+          <text class="rating-star">⭐</text>
+          <text class="rating-score">{{item.rating}}</text>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+
+  <!-- 最新资讯区 -->
+  <view class="news-section">
+    <view class="section-header">
+      <view class="apple-subtitle">最新资讯</view>
+      <view class="view-more" bindtap="navigateTo" data-url="/pages/news/list">查看更多</view>
+    </view>
+    <view class="news-list">
+      <view class="news-item apple-card" wx:for="{{latestNews}}" wx:key="id" bindtap="navigateTo" data-url="/pages/news/detail?id={{item.id}}">
+        <image class="news-image" src="{{item.image}}" mode="aspectFill"></image>
+        <view class="news-content">
+          <view class="news-title">{{item.title}}</view>
+          <view class="news-summary apple-text-secondary">{{item.summary}}</view>
+          <view class="news-meta">
+            <text class="news-date">{{item.date}}</text>
+            <text class="news-views">{{item.views}} 阅读</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

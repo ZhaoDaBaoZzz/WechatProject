@@ -1,0 +1,174 @@
+.container {
+  padding: 16px;
+}
+
+/* 搜索栏样式 */
+.search-bar {
+  margin-bottom: 20px;
+}
+
+.search-input {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0;
+}
+
+.search-icon {
+  margin-right: 8px;
+}
+
+/* 功能入口区样式 */
+.feature-section {
+  margin-bottom: 24px;
+}
+
+.feature-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 12px;
+}
+
+.feature-item {
+  width: 23%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.feature-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background-color: var(--apple-gray6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  margin-bottom: 8px;
+}
+
+.feature-name {
+  font-size: 14px;
+  color: var(--apple-black);
+}
+
+/* 推荐医生区样式 */
+.doctor-section {
+  margin-bottom: 24px;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.view-more {
+  font-size: 14px;
+  color: var(--apple-primary);
+}
+
+.doctor-scroll {
+  white-space: nowrap;
+}
+
+.doctor-card {
+  display: inline-block;
+  width: 140px;
+  margin-right: 12px;
+  margin-left: 0;
+  vertical-align: top;
+}
+
+.doctor-avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 30px;
+  margin-bottom: 8px;
+}
+
+.doctor-name {
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.doctor-title {
+  margin-bottom: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.doctor-field {
+  margin-bottom: 8px;
+}
+
+.doctor-rating {
+  display: flex;
+  align-items: center;
+}
+
+.rating-star {
+  margin-right: 4px;
+}
+
+/* 最新资讯区样式 */
+.news-section {
+  margin-bottom: 24px;
+}
+
+.news-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.news-item {
+  display: flex;
+  margin-bottom: 12px;
+  padding: 12px;
+}
+
+.news-image {
+  width: 80px;
+  height: 80px;
+  border-radius: 8px;
+  margin-right: 12px;
+}
+
+.news-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.news-title {
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 4px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.news-summary {
+  margin-bottom: 8px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.news-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: var(--apple-gray1);
+}

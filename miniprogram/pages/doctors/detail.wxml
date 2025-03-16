@@ -1,0 +1,95 @@
+<view class="container">
+  <!-- 医生基本信息 -->
+  <view class="doctor-header apple-card">
+    <view class="doctor-basic">
+      <image class="doctor-avatar" src="{{doctor.avatar}}" mode="aspectFill"></image>
+      <view class="doctor-info">
+        <view class="doctor-name">{{doctor.name}}</view>
+        <view class="doctor-title apple-text-secondary">{{doctor.title}}</view>
+        <view class="doctor-tags">
+          <view class="apple-tag">{{doctor.field}}</view>
+          <view class="apple-tag">{{doctor.experience}}年经验</view>
+        </view>
+        <view class="doctor-rating">
+          <text class="rating-star">⭐</text>
+          <text class="rating-score">{{doctor.rating}}</text>
+          <text class="rating-count">({{doctor.ratingCount}}条评价)</text>
+        </view>
+      </view>
+    </view>
+    <view class="doctor-actions">
+      <button class="apple-button" bindtap="navigateToAppointment" data-id="{{doctor.id}}">预约咨询</button>
+    </view>
+  </view>
+
+  <!-- 医生简介 -->
+  <view class="doctor-section apple-card">
+    <view class="section-title">个人简介</view>
+    <view class="doctor-description apple-text">{{doctor.description}}</view>
+  </view>
+
+  <!-- 专业领域 -->
+  <view class="doctor-section apple-card">
+    <view class="section-title">专业领域</view>
+    <view class="skill-list">
+      <view class="skill-item" wx:for="{{doctor.skills}}" wx:key="*this">
+        <view class="skill-icon">✓</view>
+        <view class="skill-name">{{item}}</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 资质证书 -->
+  <view class="doctor-section apple-card">
+    <view class="section-title">资质证书</view>
+    <scroll-view scroll-x class="certificate-scroll">
+      <view class="certificate-item" wx:for="{{doctor.certificates}}" wx:key="id">
+        <image class="certificate-image" src="{{item.image}}" mode="aspectFill" bindtap="previewImage" data-url="{{item.image}}"></image>
+        <view class="certificate-name apple-text-secondary">{{item.name}}</view>
+      </view>
+    </scroll-view>
+  </view>
+
+  <!-- 用户评价 -->
+  <view class="doctor-section apple-card">
+    <view class="section-header">
+      <view class="section-title">用户评价</view>
+      <view class="view-more" bindtap="viewAllReviews">查看全部</view>
+    </view>
+    <view class="review-list">
+      <view class="review-item" wx:for="{{doctor.reviews}}" wx:key="id">
+        <view class="review-header">
+          <image class="reviewer-avatar" src="{{item.avatar}}" mode="aspectFill"></image>
+          <view class="reviewer-info">
+            <view class="reviewer-name">{{item.name}}</view>
+            <view class="review-date apple-text-secondary">{{item.date}}</view>
+          </view>
+          <view class="review-rating">
+            <text class="rating-star">⭐</text>
+            <text class="rating-score">{{item.rating}}</text>
+          </view>
+        </view>
+        <view class="review-content apple-text">{{item.content}}</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 成功案例 -->
+  <view class="doctor-section apple-card">
+    <view class="section-title">服务数据</view>
+    <view class="stats-list">
+      <view class="stats-item">
+        <view class="stats-value">{{doctor.caseCount}}</view>
+        <view class="stats-label apple-text-secondary">成功案例</view>
+      </view>
+      <view class="stats-item">
+        <view class="stats-value">{{doctor.appointmentCount}}</view>
+        <view class="stats-label apple-text-secondary">累计预约</view>
+      </view>
+      <view class="stats-item">
+        <view class="stats-value">{{doctor.responseRate}}%</view>
+        <view class="stats-label apple-text-secondary">响应率</view>
+      </view>
+    </view>
+  </view>
+</view>

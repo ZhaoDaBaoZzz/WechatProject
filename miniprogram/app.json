@@ -1,0 +1,53 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/doctors/list",
+    "pages/doctors/detail",
+    "pages/appointment/create",
+    "pages/appointment/list",
+    "pages/news/list",
+    "pages/news/detail",
+    "pages/profile/index"
+  ],
+  "window": {
+    "backgroundColor": "#F2F2F7",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#FFFFFF",
+    "navigationBarTitleText": "心理预约平台",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#8E8E93",
+    "selectedColor": "#007AFF",
+    "backgroundColor": "#FFFFFF",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/tabbar/home.png",
+        "selectedIconPath": "images/tabbar/home_selected.png"
+      },
+      {
+        "pagePath": "pages/doctors/list",
+        "text": "医生",
+        "iconPath": "images/tabbar/doctor.png",
+        "selectedIconPath": "images/tabbar/doctor_selected.png"
+      },
+      {
+        "pagePath": "pages/appointment/list",
+        "text": "预约",
+        "iconPath": "images/tabbar/appointment.png",
+        "selectedIconPath": "images/tabbar/appointment_selected.png"
+      },
+      {
+        "pagePath": "pages/profile/index",
+        "text": "我的",
+        "iconPath": "images/tabbar/profile.png",
+        "selectedIconPath": "images/tabbar/profile_selected.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json",
+  "style": "v2"
+}

@@ -1,0 +1,198 @@
+/* pages/doctors/detail.wxss */
+.container {
+  padding: 16px;
+  padding-bottom: 32px;
+}
+
+/* 医生基本信息样式 */
+.doctor-header {
+  margin-bottom: 16px;
+}
+
+.doctor-basic {
+  display: flex;
+  margin-bottom: 16px;
+}
+
+.doctor-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 40px;
+  margin-right: 16px;
+}
+
+.doctor-info {
+  flex: 1;
+}
+
+.doctor-name {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.doctor-title {
+  margin-bottom: 8px;
+}
+
+.doctor-tags {
+  display: flex;
+  margin-bottom: 8px;
+}
+
+.doctor-rating {
+  display: flex;
+  align-items: center;
+}
+
+.rating-star {
+  color: var(--apple-warning);
+  margin-right: 4px;
+}
+
+.rating-count {
+  font-size: 14px;
+  color: var(--apple-gray1);
+  margin-left: 4px;
+}
+
+.doctor-actions {
+  display: flex;
+  justify-content: center;
+}
+
+/* 医生详情区域样式 */
+.doctor-section {
+  margin-bottom: 16px;
+}
+
+.section-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.view-more {
+  font-size: 14px;
+  color: var(--apple-primary);
+}
+
+.doctor-description {
+  line-height: 1.6;
+}
+
+/* 专业领域样式 */
+.skill-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.skill-item {
+  display: flex;
+  align-items: center;
+  width: 50%;
+  margin-bottom: 8px;
+}
+
+.skill-icon {
+  color: var(--apple-success);
+  margin-right: 8px;
+}
+
+/* 资质证书样式 */
+.certificate-scroll {
+  white-space: nowrap;
+}
+
+.certificate-item {
+  display: inline-block;
+  width: 120px;
+  margin-right: 12px;
+  text-align: center;
+}
+
+.certificate-image {
+  width: 120px;
+  height: 80px;
+  border-radius: 8px;
+  margin-bottom: 4px;
+}
+
+.certificate-name {
+  font-size: 12px;
+  white-space: normal;
+  text-align: center;
+}
+
+/* 用户评价样式 */
+.review-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.review-item {
+  padding-bottom: 12px;
+  margin-bottom: 12px;
+  border-bottom: 1px solid var(--apple-gray5);
+}
+
+.review-item:last-child {
+  margin-bottom: 0;
+  border-bottom: none;
+}
+
+.review-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.reviewer-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 16px;
+  margin-right: 8px;
+}
+
+.reviewer-info {
+  flex: 1;
+}
+
+.reviewer-name {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.review-date {
+  font-size: 12px;
+}
+
+.review-content {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* 服务数据样式 */
+.stats-list {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+}
+
+.stats-value {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--apple-primary);
+  margin-bottom: 4px;
+}
+
+.stats-label {
+  font-size: 12px;
+}

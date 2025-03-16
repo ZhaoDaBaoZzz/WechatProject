@@ -1,0 +1,93 @@
+<view class="container">
+  <!-- 未登录状态 -->
+  <view class="login-section" wx:if="{{!isLoggedIn}}">
+    <view class="login-avatar">
+      <image src="/images/default_avatar.png" mode="aspectFill"></image>
+    </view>
+    <view class="login-text">登录后使用更多功能</view>
+    <button class="apple-button" bindtap="handleLogin">微信登录</button>
+  </view>
+
+  <!-- 已登录状态 -->
+  <view class="profile-section apple-card" wx:else>
+    <view class="user-info">
+      <image class="user-avatar" src="{{userInfo.avatarUrl}}" mode="aspectFill"></image>
+      <view class="user-detail">
+        <view class="user-name">{{userInfo.nickName}}</view>
+        <view class="user-role apple-tag">{{userInfo.role === 1 ? '医生' : '普通用户'}}</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 功能菜单 -->
+  <view class="menu-section apple-card">
+    <view class="menu-title">我的服务</view>
+    <view class="menu-list">
+      <view class="menu-item" bindtap="navigateToAppointment">
+        <view class="menu-icon">📅</view>
+        <view class="menu-name">我的预约</view>
+        <view class="menu-arrow">></view>
+      </view>
+      <view class="menu-item" bindtap="navigateToFavorites">
+        <view class="menu-icon">⭐</view>
+        <view class="menu-name">我的收藏</view>
+        <view class="menu-arrow">></view>
+      </view>
+      <view class="menu-item" bindtap="navigateToReviews">
+        <view class="menu-icon">📝</view>
+        <view class="menu-name">我的评价</view>
+        <view class="menu-arrow">></view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 医生申请 -->
+  <view class="menu-section apple-card" wx:if="{{userInfo.role === 0}}">
+    <view class="menu-title">成为医生</view>
+    <view class="menu-list">
+      <view class="menu-item" bindtap="navigateToDoctorApply">
+        <view class="menu-icon">🩺</view>
+        <view class="menu-name">医生入驻申请</view>
+        <view class="menu-arrow">></view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 医生工作台 -->
+  <view class="menu-section apple-card" wx:if="{{userInfo.role === 1}}">
+    <view class="menu-title">医生工作台</view>
+    <view class="menu-list">
+      <view class="menu-item" bindtap="navigateToDoctorSchedule">
+        <view class="menu-icon">🗓️</view>
+        <view class="menu-name">排班管理</view>
+        <view class="menu-arrow">></view>
+      </view>
+      <view class="menu-item" bindtap="navigateToDoctorAppointments">
+        <view class="menu-icon">📋</view>
+        <view class="menu-name">预约管理</view>
+        <view class="menu-arrow">></view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 设置菜单 -->
+  <view class="menu-section apple-card">
+    <view class="menu-title">设置</view>
+    <view class="menu-list">
+      <view class="menu-item" bindtap="navigateToSettings">
+        <view class="menu-icon">⚙️</view>
+        <view class="menu-name">通用设置</view>
+        <view class="menu-arrow">></view>
+      </view>
+      <view class="menu-item" bindtap="navigateToAbout">
+        <view class="menu-icon">ℹ️</view>
+        <view class="menu-name">关于我们</view>
+        <view class="menu-arrow">></view>
+      </view>
+      <view class="menu-item" bindtap="handleLogout" wx:if="{{isLoggedIn}}">
+        <view class="menu-icon">🚪</view>
+        <view class="menu-name logout">退出登录</view>
+      </view>
+    </view>
+  </view>
+</view>
